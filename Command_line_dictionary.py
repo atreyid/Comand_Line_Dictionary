@@ -6,7 +6,11 @@ class Dictionary:
         self.data = json.load(open("./data.json"))
     
     def meaning_of_word(self,w):
-        if w.lower() in self.data or w.upper() in self.data:
+        if w.lower() in self.data:
+            w = w.lower()
+            return self.pretty_print(w)
+        elif w.upper() in self.data:
+            w = w.upper()
             return self.pretty_print(w)
         else:
             return self.return_closest_match(w)
@@ -22,6 +26,7 @@ class Dictionary:
             return self.pretty_print(w_match)
         else:
             return "Sorry try a different word!"
+    
     def pretty_print(self,w):
         return '\n'.join(self.data[w])
     
