@@ -6,8 +6,7 @@ class Dictionary:
         self.data = json.load(open("./data.json"))
     
     def meaning_of_word(self,w):
-        w = w.lower()
-        if w in self.data:
+        if w.lower() in self.data or w.upper() in self.data:
             return self.pretty_print(w)
         else:
             return self.return_closest_match(w)
