@@ -8,7 +8,7 @@ class Dictionary:
     def meaning_of_word(self,w):
         w = w.lower()
         if w in self.data:
-            return self.data[w]
+            return self.pretty_print(w)
         else:
             return self.return_closest_match(w)
 
@@ -20,10 +20,11 @@ class Dictionary:
         print("Sorry, that word doesn't exist. Did you mean: {0}?".format(w_match))
         choice_user_1 = input("Enter Y or N: ").lower()
         if choice_user_1 == 'y':
-            return self.data[w_match]
+            return self.pretty_print(w_match)
         else:
             return "Sorry try a different word!"
-
+    def pretty_print(self,w):
+        return '\n'.join(self.data[w])
     
     
 def user_choice():
