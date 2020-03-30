@@ -3,7 +3,7 @@ import sys
 from difflib import get_close_matches, SequenceMatcher
 class Dictionary:
     def __init__(self):
-        self.data = json.load(open("/Users/atreyidasmahapatra/Python_coding/data.json"))
+        self.data = json.load(open("./data.json"))
     
     def meaning_of_word(self,w):
         w = w.lower()
